@@ -5,7 +5,7 @@ import InshotTabs from "./components/InshotTabs";
 
 export default function App() {
   return (
-    <View style={styles.container}>
+    <View style={{ ...styles.container, backgroundColor: "#282c35" }}>
       <InshotTabs />
     </View>
   );

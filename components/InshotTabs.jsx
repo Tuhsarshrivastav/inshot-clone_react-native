@@ -3,6 +3,7 @@ import { Text, useWindowDimensions, View } from "react-native";
 import { SceneMap, TabView } from "react-native-tab-view";
 import DiscoverScreen from "../screens/DiscoverScreen";
 import NewsScreen from "../screens/NewsScreen";
+import TopNavigatin from "./TopNavigatin";
 
 const InshotTabs = () => {
   const layout = useWindowDimensions();
@@ -23,6 +24,7 @@ const InshotTabs = () => {
       renderScene={renderScene}
       onIndexChange={setIndex}
       initialLayout={{ width: layout.width }}
+      renderTabBar={() => <TopNavigatin index={index} setIndex={setIndex} />}
     />
   );
 };
