@@ -1,12 +1,19 @@
-import { StatusBar } from "expo-status-bar";
-import React from "react";
-import { StyleSheet, Text, View } from "react-native";
-import InshotTabs from "./components/InshotTabs";
+import React, { useContext } from "react";
+import { StatusBar, StyleSheet, View } from "react-native";
+import Context, { NewsContext } from "./API/Context";
+import InshortTabs from "./components/InshortTabs";
 
-export default function App() {
+function App() {
+  const { darkTheme } = useContext(NewsContext);
+
   return (
-    <View style={{ ...styles.container, backgroundColor: "#282c35" }}>
-      <InshotTabs />
+    <View
+      style={{
+        ...styles.container,
+        backgroundColor: darkTheme ? "#282C35" : "white",
+      }}
+    >
+      <InshortTabs />
     </View>
   );
 }
@@ -17,3 +24,11 @@ const styles = StyleSheet.create({
     marginTop: StatusBar.currentHeight,
   },
 });
+
+export default () => {
+  return (
+    <Context>
+      <App />
+    </Context>
+  );
+};
